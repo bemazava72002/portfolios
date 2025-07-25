@@ -9,7 +9,7 @@ const ubuntu = Ubuntu({
 });
 
 export const metadata: Metadata = {
-  title: 'Portfolio - Expert en Prospection B2B',
+  title: 'Portfolio - Jessica RAKOTOZAFY',
   description: 'Portfolio professionnel spécialisé en prospection commerciale B2B et automatisation des ventes',
 };
 
