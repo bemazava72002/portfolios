@@ -42,7 +42,7 @@ const Navigation = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16">
           <div className="font-bold text-xl gradient-text">
-            Portfolio
+            Jessica RAKOTOZAFY
           </div>
 
           {/* Desktop Navigation */}
