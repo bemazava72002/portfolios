@@ -73,7 +73,7 @@ const HeroSection = () => {
               <div className="relative bg-card rounded-3xl p-8 shadow-2xl border">
                 <div className="text-center mb-6">
 
-                  <div className="w-24 h-24 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-4 >
+                  <div className="w-24 h-24 to-accent rounded-full mx-auto mb-4 >
                       <img src="/jessica.pdf" />
                   </div>
                   
