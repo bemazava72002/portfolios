@@ -58,18 +58,17 @@ const Navigation = () => {
             ))}
                 
             <a
-             href="/CV-Jessica-Rakotozafy .pdf"
+             href="/CV-Jessica-Rakotozafy.pdf"
             download
             
             >
 
-              <Button 
-                variant="outline" 
-                size="sm" 
-               className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition duration-200"
+             <Button 
+              size="lg" 
+                             
+              className="transition-all duration-300 hover:scale-105"
               >
-                
-                <span>resume CV</span>
+              Télécharger cv
               </Button>
           
             </a>
