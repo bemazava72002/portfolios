@@ -58,7 +58,7 @@ const Navigation = () => {
             ))}
                 
             <a
-             href="/CV-Jessica-Rakotozafy.pdf"
+             href="/CV-Jessica-Rakotozafy .pdf"
             download
             
             >
@@ -69,7 +69,7 @@ const Navigation = () => {
               className="transition-all duration-300 hover:scale-105"
               >
               Télécharger cv
-              </Button>
+                           </Button>
           
             </a>
             
