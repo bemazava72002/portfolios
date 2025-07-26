@@ -115,7 +115,17 @@ const Navigation = () => {
                   {item.label}
                 </button>
               ))}
+
+              <a href="/CV-Jessica-Rakotozafy .pdf" download>
+                
+                <Button variant="outline" size="sm" className="w-fit transition-all duration-300 hover:scale-105">
+                 
+                  Télécharger CV
+                </Button>
+                </a>
             </div>
+
+
           </div>
         )}
       </div>

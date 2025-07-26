@@ -74,8 +74,8 @@ const HeroSection = () => {
                 <div className="text-center mb-6">
                     
                   <img className='w-24 h-24 relative mx-auto mb-6 rounded-full flex items-center justify-center' src="/jessica.jpg"  alt="" />
-                  
-                  <h3 className="font-semibold">Votre Expert en Prospection</h3>
+                  <h3 className="font-semibold">Jessica RAKOTOZAFY</h3>
+                  <h4 className="font-semibold">Votre Expert en Prospection</h4>
                   <p className="text-muted-foreground">Spécialiste en automatisation commerciale</p>
                 </div>
                 <div className="space-y-4">
