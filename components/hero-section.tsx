@@ -73,7 +73,7 @@ const HeroSection = () => {
               <div className="relative bg-card rounded-3xl p-8 shadow-2xl border">
                 <div className="text-center mb-6">
 
-                  <img className='w-25 h-25  to-accent rounded-full mx-auto mb-4' src="/jessica.jpg"  alt="" />
+                  <img className='w-24 h-24 center rounded-full mx-auto mb-4' src="/jessica.jpg"  alt="" />
                   
                   <h3 className="font-semibold">Votre Expert en Prospection</h3>
                   <p className="text-muted-foreground">Spécialiste en automatisation commerciale</p>
