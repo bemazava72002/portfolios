@@ -56,6 +56,24 @@ const Navigation = () => {
                 {item.label}
               </button>
             ))}
+                
+            <a
+             href="/CV-Jessica-Rakotozafy .pdf"
+            download
+            
+            >
+
+              <Button 
+                variant="outline" 
+                size="sm" 
+               className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition duration-200"
+              >
+                
+                <span>resume CV</span>
+              </Button>
+          
+            </a>
+            
             <Button
               variant="ghost"
               size="icon"
