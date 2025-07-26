@@ -72,8 +72,8 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-3xl blur-3xl opacity-20"></div>
               <div className="relative bg-card rounded-3xl p-8 shadow-2xl border">
                 <div className="text-center mb-6">
-
-                  <img className='w-32 h-32 mx-auto mb-6 rounded-full flex items-center justify-center' src="/jessica.jpg"  alt="" />
+                    
+                  <img className='w-30 h-30 mx-auto mb-6 rounded-full flex items-center justify-center' src="/jessica.jpg"  alt="" />
                   
                   <h3 className="font-semibold">Votre Expert en Prospection</h3>
                   <p className="text-muted-foreground">Spécialiste en automatisation commerciale</p>
