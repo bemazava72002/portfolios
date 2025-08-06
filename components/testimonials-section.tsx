@@ -119,9 +119,7 @@ const TestimonialsSection = () => {
     Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
-        className={`h-4 w-4 ${
-          i < rating ? "text-yellow-400 fill-current" : "text-gray-300"
-        }`}
+        className={`h-4 w-4 ${i < rating ? "text-yellow-400 fill-current" : "text-gray-300"}`}
       />
     ));
 
@@ -129,69 +127,58 @@ const TestimonialsSection = () => {
     <section id="testimonials" className="section-padding">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="mb-4">Témoignages Clients</h2>
+          <h2 className="mb-4">Avis & Témoignages Clients</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Découvrez ce que mes clients disent de leur expérience et des
-            résultats obtenus grâce à mes solutions de prospection B2B.
+            Nos services en community management aident les marques à se démarquer sur les réseaux sociaux grâce à des stratégies de contenu sur mesure, une animation de communauté engageante et une gestion cohérente de leur image en ligne. Voici ce que nos clients en pensent.
           </p>
         </div>
 
-        {/* Testimonials Grid */}
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {testimonials.map((testimonial) => (
-          <Card key={testimonial._id} className="card-hover">
-            <CardHeader className="pb-4">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
-                  <User className="h-6 w-6 text-white" />
+            <Card key={testimonial._id} className="card-hover">
+              <CardHeader className="pb-4">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
+                    <User className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">{testimonial.name}</h3>
+                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    <Badge variant="outline" className="text-xs mt-1">
+                      {testimonial.company}
+                    </Badge>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold">{testimonial.name}</h3>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  <Badge variant="outline" className="text-xs mt-1">
-                    {testimonial.company}
-                  </Badge>
+                <div className="flex items-center gap-1">
+                  {renderStars(testimonial.rating)}
                 </div>
-              </div>
-              <div className="flex items-center gap-1">
-                {renderStars(testimonial.rating)}
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="relative">
-                <Quote className="absolute -top-2 -left-2 h-8 w-8 text-primary/20" />
-                <p className="text-muted-foreground italic pl-6">
-                  {testimonial.content}
-                </p>
-              </div>
-              <div className="text-xs text-muted-foreground mt-4">
-                {testimonial.date
-                  ? new Date(testimonial.date).toLocaleDateString("fr-FR")
-                  : ""}
-              </div>
-            </CardContent>
-          </Card>
+              </CardHeader>
+              <CardContent>
+                <div className="relative">
+                  <Quote className="absolute -top-2 -left-2 h-8 w-8 text-primary/20" />
+                  <p className="text-muted-foreground italic pl-6">{testimonial.content}</p>
+                </div>
+                <div className="text-xs text-muted-foreground mt-4">
+                  {testimonial.date ? new Date(testimonial.date).toLocaleDateString("fr-FR") : ""}
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
 
-        {/* Buttons */}
         <div className="text-center mb-12">
-          <Button
-            onClick={() => setShowTestimonialForm(true)}
-            className="mr-4"
-          >
-            Ajouter un témoignage
+          <Button onClick={() => setShowTestimonialForm(true)} className="mr-4">
+            Laisser un témoignage sur mes services
           </Button>
           <Button variant="outline" onClick={() => setShowCommentForm(true)}>
-            <MessageCircle className="mr-2 h-4 w-4" /> Laisser un commentaire
+            <MessageCircle className="mr-2 h-4 w-4" /> Partager un commentaire
           </Button>
         </div>
 
-        {/* Testimonial Form */}
         {showTestimonialForm && (
           <Card className="max-w-2xl mx-auto mb-12">
             <CardHeader>
-              <h3>Ajouter un témoignage</h3>
+              <h3>Ajouter un témoignage sur mes services</h3>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleTestimonialSubmit} className="space-y-4">
@@ -200,41 +187,27 @@ const TestimonialsSection = () => {
                     placeholder="Votre nom"
                     required
                     value={testimonialForm.name}
-                    onChange={(e) =>
-                      setTestimonialForm({ ...testimonialForm, name: e.target.value })
-                    }
+                    onChange={(e) => setTestimonialForm({ ...testimonialForm, name: e.target.value })}
                   />
                   <Input
-                    placeholder="Votre entreprise"
+                    placeholder="Entreprise ou organisation"
                     required
                     value={testimonialForm.company}
-                    onChange={(e) =>
-                      setTestimonialForm({
-                        ...testimonialForm,
-                        company: e.target.value,
-                      })
-                    }
+                    onChange={(e) => setTestimonialForm({ ...testimonialForm, company: e.target.value })}
                   />
                 </div>
                 <Input
-                  placeholder="Votre poste"
+                  placeholder="Votre poste (ex : Gérant, Responsable marketing...)"
                   required
                   value={testimonialForm.role}
-                  onChange={(e) =>
-                    setTestimonialForm({ ...testimonialForm, role: e.target.value })
-                  }
+                  onChange={(e) => setTestimonialForm({ ...testimonialForm, role: e.target.value })}
                 />
                 <Textarea
-                  placeholder="Votre témoignage..."
+                  placeholder="Partagez votre expérience avec mes services de community management..."
                   rows={4}
                   required
                   value={testimonialForm.content}
-                  onChange={(e) =>
-                    setTestimonialForm({
-                      ...testimonialForm,
-                      content: e.target.value,
-                    })
-                  }
+                  onChange={(e) => setTestimonialForm({ ...testimonialForm, content: e.target.value })}
                 />
                 <div className="flex items-center gap-2">
                   <span className="text-sm">Note :</span>
@@ -243,17 +216,9 @@ const TestimonialsSection = () => {
                       <button
                         key={i}
                         type="button"
-                        onClick={() =>
-                          setTestimonialForm({ ...testimonialForm, rating: i + 1 })
-                        }
+                        onClick={() => setTestimonialForm({ ...testimonialForm, rating: i + 1 })}
                       >
-                        <Star
-                          className={`h-5 w-5 ${
-                            i < testimonialForm.rating
-                              ? "text-yellow-400 fill-current"
-                              : "text-gray-300"
-                          }`}
-                        />
+                        <Star className={`h-5 w-5 ${i < testimonialForm.rating ? "text-yellow-400 fill-current" : "text-gray-300"}`} />
                       </button>
                     ))}
                   </div>
@@ -262,11 +227,7 @@ const TestimonialsSection = () => {
                   <Button type="submit">
                     <Send className="mr-2 h-4 w-4" /> Publier
                   </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={() => setShowTestimonialForm(false)}
-                  >
+                  <Button type="button" variant="outline" onClick={() => setShowTestimonialForm(false)}>
                     Annuler
                   </Button>
                 </div>
@@ -275,7 +236,6 @@ const TestimonialsSection = () => {
           </Card>
         )}
 
-        {/* Comment Form */}
         {showCommentForm && (
           <Card className="max-w-2xl mx-auto mb-12">
             <CardHeader>
@@ -287,28 +247,20 @@ const TestimonialsSection = () => {
                   placeholder="Votre nom"
                   required
                   value={commentForm.name}
-                  onChange={(e) =>
-                    setCommentForm({ ...commentForm, name: e.target.value })
-                  }
+                  onChange={(e) => setCommentForm({ ...commentForm, name: e.target.value })}
                 />
                 <Textarea
-                  placeholder="Votre commentaire..."
+                  placeholder="Un retour sur mes contenus ou services ?"
                   rows={3}
                   required
                   value={commentForm.content}
-                  onChange={(e) =>
-                    setCommentForm({ ...commentForm, content: e.target.value })
-                  }
+                  onChange={(e) => setCommentForm({ ...commentForm, content: e.target.value })}
                 />
                 <div className="flex gap-2">
                   <Button type="submit">
                     <Send className="mr-2 h-4 w-4" /> Publier
                   </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={() => setShowCommentForm(false)}
-                  >
+                  <Button type="button" variant="outline" onClick={() => setShowCommentForm(false)}>
                     Annuler
                   </Button>
                 </div>
@@ -317,7 +269,6 @@ const TestimonialsSection = () => {
           </Card>
         )}
 
-        {/* Comments */}
         {comments.length > 0 && (
           <div className="max-w-4xl mx-auto">
             <h3 className="mb-6 text-center">Commentaires</h3>
@@ -332,15 +283,11 @@ const TestimonialsSection = () => {
                       <div>
                         <span className="font-medium">{comment.name}</span>
                         <span className="text-xs text-muted-foreground ml-2">
-                          {comment.date
-                            ? new Date(comment.date).toLocaleDateString("fr-FR")
-                            : ""}
+                          {comment.date ? new Date(comment.date).toLocaleDateString("fr-FR") : ""}
                         </span>
                       </div>
                     </div>
-                    <p className="text-muted-foreground pl-11">
-                      {comment.content}
-                    </p>
+                    <p className="text-muted-foreground pl-11">{comment.content}</p>
                   </CardContent>
                 </Card>
               ))}

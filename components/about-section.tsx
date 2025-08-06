@@ -2,36 +2,41 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Code, Database, Zap, Brain } from 'lucide-react';
+import { Users, Camera, Globe, Pencil } from 'lucide-react';
 
 const AboutSection = () => {
   const skills = [
-    'Prospection B2B', 'Lead Generation', 'Marketing Automation', 'CRM Management',
-    'Sales Funnel', 'Email Marketing', 'LinkedIn Outreach', 'Data Analysis',
-    'Cold Calling', 'Sales Strategy', 'Customer Acquisition', 'Revenue Growth'
+    'Community Management',
+    'Création de contenu',
+    'Montage vidéo',
+    'Photographie',
+    'Événementiel',
+    'WordPress',
+    'Multilingue (FR/EN/ES/PT)',
+    'Communication digitale',
   ];
 
   const experiences = [
     {
-      icon: <Zap className="h-6 w-6" />,
-      title: "Automatisation Commerciale",
-      description: "5+ années d'expérience dans l'automatisation des processus de vente et la génération de leads qualifiés."
+      icon: <Users className="h-6 w-6" />,
+      title: "Community Manager",
+      description: "Expérience en gestion de communauté pour l'agence digitale Pixelsior, avec une forte capacité à engager et fidéliser les audiences.",
     },
     {
-      icon: <Database className="h-6 w-6" />,
-      title: "Gestion de Données",
-      description: "Expertise dans l'analyse et la segmentation de bases de données pour optimiser les campagnes de prospection."
+      icon: <Camera className="h-6 w-6" />,
+      title: "Création visuelle & vidéo",
+      description: "Réalisation de contenus visuels et montages vidéo pour les réseaux sociaux et les événements artistiques.",
     },
     {
-      icon: <Brain className="h-6 w-6" />,
-      title: "Stratégie Commerciale",
-      description: "Développement de stratégies sur-mesure pour maximiser le ROI des activités de prospection B2B."
+      icon: <Pencil className="h-6 w-6" />,
+      title: "Contenus et rédaction",
+      description: "Compétences en rédaction web, communication digitale et animation éditoriale multilingue.",
     },
     {
-      icon: <Code className="h-6 w-6" />,
-      title: "Outils Technologiques",
-      description: "Maîtrise des plateformes CRM, d'automatisation marketing et d'outils de prospection avancés."
-    }
+      icon: <Globe className="h-6 w-6" />,
+      title: "Polyvalence culturelle",
+      description: "Maîtrise de plusieurs langues (FR, EN, ES, PT) et expériences dans des environnements multiculturels.",
+    },
   ];
 
   return (
@@ -40,28 +45,22 @@ const AboutSection = () => {
         <div className="text-center mb-16">
           <h2 className="mb-4">À propos de moi</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Passionné par l'innovation commerciale, je transforme les défis de prospection 
-            en opportunités de croissance pour les entreprises B2B.
+            Community Manager passionnée, j’allie créativité, rigueur et sens artistique pour animer, développer et valoriser votre image de marque en ligne.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6">
             <div>
-              <h3 className="mb-4">Mon expertise</h3>
+              <h3 className="mb-4">Mon parcours</h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Avec plus de 5 années d'expérience dans le domaine de la prospection commerciale, 
-                je me spécialise dans l'automatisation intelligente des processus de vente B2B. 
-                Mon approche combine stratégie commerciale, technologie avancée et analyse de données 
-                pour générer des résultats mesurables.
+                Titulaire d’un Master en Droit Public Général à l’Université Sorbonne Paris Nord, j’ai choisi de mettre mes compétences juridiques, organisationnelles et créatives au service du Community Management.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Je travaille avec des entreprises de toutes tailles pour optimiser leurs entonnoirs 
-                de vente, améliorer leur taux de conversion et automatiser leurs campagnes de prospection 
-                tout en maintenant une approche personnalisée.
+                Actuellement Community Manager chez Pixelsior, j’interviens sur la création de contenus, l’animation de réseaux sociaux, la gestion de communautés, et la valorisation des marques à travers des supports digitaux et artistiques.
               </p>
             </div>
-            
+
             <div>
               <h3 className="mb-4">Compétences clés</h3>
               <div className="flex flex-wrap gap-2">
@@ -90,10 +89,9 @@ const AboutSection = () => {
         </div>
 
         <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 text-center">
-          <h3 className="mb-4">Ma mission</h3>
+          <h3 className="mb-4">Notre mission</h3>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            "Transformer chaque interaction commerciale en opportunité de croissance 
-            grâce à l'automatisation intelligente et une approche data-driven."
+            "Créer du lien entre les marques et leurs communautés grâce à des contenus authentiques, engageants et porteurs de sens."
           </p>
         </div>
       </div>

@@ -1,74 +1,77 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { 
-  Target, 
-  Zap, 
-  BarChart3, 
-  Users, 
-  Mail, 
-  Phone, 
-  Settings, 
-  TrendingUp,
-  CheckCircle,
-  ArrowRight
+  Badge 
+} from '@/components/ui/badge';
+import { 
+  Button 
+} from '@/components/ui/button';
+import { 
+  Card, 
+  CardContent, 
+  CardHeader, 
+  CardTitle 
+} from '@/components/ui/card';
+
+import {
+  Users, Camera, PenSquare, Share2, CheckCircle, ArrowRight, Link
 } from 'lucide-react';
 
 const ServicesSection = () => {
   const mainServices = [
     {
-      icon: <Target className="h-8 w-8" />,
-      title: "Prospection B2B Automatisée",
-      description: "Mise en place de systèmes automatisés pour identifier et qualifier vos prospects idéaux",
-      features: ["Lead scoring intelligent", "Segmentation avancée", "Suivi multicanal", "ROI optimisé"],
-      price: "À partir de 2500€",
+      icon: <Camera className="h-8 w-8" />,
+      title: "Création de Contenu Visuel",
+      description: "Conception de visuels et vidéos impactants pour vos réseaux sociaux.",
+      features: [
+        "Shooting photo & retouche",
+        "Montage vidéo dynamique",
+        "Design Canva & Photoshop",
+        "Stories et reels optimisés"
+      ],
       popular: true
     },
     {
-      icon: <Zap className="h-8 w-8" />,
-      title: "Automatisation Marketing",
-      description: "Création de workflows personnalisés pour nurturing et conversion de leads",
-      features: ["Email sequences", "Triggers comportementaux", "Landing pages", "Analytics avancés"],
-      price: "À partir de 1800€",
+      icon: <Users className="h-8 w-8" />,
+      title: "Animation de Communauté",
+      description: "Gestion et animation de vos pages pour engager et fidéliser votre audience.",
+      features: [
+        "Réponses aux commentaires & messages",
+        "Jeux concours & sondages",
+        "Calendrier éditorial personnalisé",
+        "Analyse des statistiques d’engagement"
+      ],
       popular: false
     },
     {
-      icon: <BarChart3 className="h-8 w-8" />,
-      title: "Optimisation CRM",
-      description: "Configuration et optimisation de votre CRM pour maximiser l'efficacité commerciale",
-      features: ["Pipeline management", "Reporting personnalisé", "Intégrations", "Formation équipe"],
-      price: "À partir de 1200€",
+      icon: <PenSquare className="h-8 w-8" />,
+      title: "Stratégie Réseaux Sociaux",
+      description: "Définition et mise en place de votre image de marque digitale.",
+      features: [
+        "Audit de présence en ligne",
+        "Positionnement de contenu",
+        "Cibles & objectifs clairs",
+        "Optimisation des bios & hashtags"
+      ],
       popular: false
     }
   ];
 
   const additionalServices = [
     {
+      icon: <Share2 className="h-6 w-6" />,
+      title: "Planification & publication",
+      description: "Programmation de contenu multicanal (Facebook, Instagram, TikTok)."
+    },
+    {
       icon: <Users className="h-6 w-6" />,
-      title: "Formation Commerciale",
-      description: "Formation de vos équipes aux techniques de prospection modernes",
+      title: "Veille et modération",
+      description: "Suivi des tendances, modération des messages/commentaires."
     },
     {
-      icon: <Mail className="h-6 w-6" />,
-      title: "Email Marketing B2B",
-      description: "Campagnes d'emailing ciblées avec taux d'ouverture optimisés",
-    },
-    {
-      icon: <Phone className="h-6 w-6" />,
-      title: "Cold Calling Strategy",
-      description: "Scripts et stratégies pour améliorer vos taux de conversion téléphoniques",
-    },
-    {
-      icon: <Settings className="h-6 w-6" />,
-      title: "Audit Commercial",
-      description: "Analyse complète de vos processus commerciaux et recommandations",
-    },
-    {
-      icon: <TrendingUp className="h-6 w-6" />,
-      title: "Growth Hacking B2B",
-      description: "Techniques innovantes pour accélérer votre croissance commerciale",
+      icon: <Camera className="h-6 w-6" />,
+      title: "Reels & Shorts",
+      description: "Création de vidéos courtes au format viral pour booster votre visibilité."
     }
   ];
 
@@ -83,10 +86,9 @@ const ServicesSection = () => {
     <section id="services" className="section-padding">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="mb-4">Services de Prospection B2B</h2>
+          <h2 className="mb-4">Nos services</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Transformez votre approche commerciale avec mes solutions d'automatisation 
-            et de prospection B2B sur-mesure, conçues pour maximiser vos résultats.
+            Nous vous aidons à construire une présence digitale authentique, engageante et cohérente sur vos réseaux sociaux, tout en valorisant votre identité de marque.
           </p>
         </div>
 
@@ -96,7 +98,7 @@ const ServicesSection = () => {
             <Card key={index} className={`relative card-hover ${service.popular ? 'ring-2 ring-primary' : ''}`}>
               {service.popular && (
                 <Badge className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-primary">
-                  Le plus populaire
+                  Le plus demandé
                 </Badge>
               )}
               <CardHeader className="text-center pb-4">
@@ -116,11 +118,7 @@ const ServicesSection = () => {
                   ))}
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-4">{service.price}</div>
-                  <Button 
-                    className="w-full"
-                    onClick={scrollToContact}
-                  >
+                  <Button className="w-full" onClick={scrollToContact}>
                     Demander un devis
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -130,16 +128,15 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Services Additionnels */}
+        {/* Services Complémentaires */}
         <div className="bg-muted/20 rounded-2xl p-8">
           <div className="text-center mb-12">
-            <h3 className="mb-4">Services Complémentaires</h3>
+            <h3 className="mb-4">Autres prestations</h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Complétez votre stratégie commerciale avec ces services spécialisés 
-              pour une approche globale et performante.
+              Nous proposons également des services à la carte pour vous accompagner au quotidien dans votre communication digitale.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {additionalServices.map((service, index) => (
               <Card key={index} className="card-hover">
@@ -158,22 +155,13 @@ const ServicesSection = () => {
 
           <div className="text-center">
             <Button size="lg" onClick={scrollToContact}>
-              Discuter de vos besoins
+              Discutons ensemble
             </Button>
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="mt-16 bg-gradient-to-r from-primary to-accent rounded-2xl p-8 text-center text-white">
-          <h3 className="mb-4 text-white">Prêt à transformer votre prospection ?</h3>
-          <p className="mb-6 text-white/80 max-w-2xl mx-auto">
-            Contactez-moi dès aujourd'hui pour un audit gratuit de vos processus commerciaux 
-            et découvrez comment automatiser votre prospection B2B.
-          </p>
-          <Button size="lg" variant="secondary" onClick={scrollToContact}>
-            Audit gratuit
-          </Button>
-        </div>
+        {/* Réseaux Sociaux */}
+        
       </div>
     </section>
   );

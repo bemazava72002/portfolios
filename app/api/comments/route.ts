@@ -2,9 +2,6 @@ import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongodb";
 import Comment from "@/models/comment";
 
-// 🔧 Indique à Next.js que cette route est dynamique
-export const dynamic = 'force-dynamic';
-
 export async function GET() {
   await connectToDatabase();
   const comments = await Comment.find().sort({ date: -1 });
