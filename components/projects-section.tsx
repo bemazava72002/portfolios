@@ -13,7 +13,7 @@ const ProjectsSection = () => {
       image: "https://images.pexels.com/photos/15543504/pexels-photo-15543504.jpeg?auto=compress&cs=tinysrgb&w=600",
       tags: ["Instagram", "Contenu visuel", "Vidéo", "Photographie"],
       
-      client: "@pixelforce_jessrakoto"
+      client: "./logo.jpg"
     },
     {
       title: "Création de contenus événementiels artistiques",
@@ -21,7 +21,7 @@ const ProjectsSection = () => {
       image: "https://images.pexels.com/photos/3831552/pexels-photo-3831552.jpeg?auto=compress&cs=tinysrgb&w=600",
       tags: ["Événementiel", "Création visuelle", "Design", "Photographie"],
      
-      client: "Ateliers artistiques & locaux"
+      client: "./logo.jpg"
     },
     {
       title: "Site WordPress pour une association locale",
@@ -29,7 +29,7 @@ const ProjectsSection = () => {
       image: "https://images.pexels.com/photos/5428831/pexels-photo-5428831.jpeg?auto=compress&cs=tinysrgb&w=600",
       tags: ["WordPress", "Site web", "Association", "Communication"],
     
-      client: "Association locale"
+      client: "./logo.jpg"
     },
     {
       title: "Création de vidéos TikTok pour la marque personnelle",
@@ -37,7 +37,7 @@ const ProjectsSection = () => {
       image: "https://images.pexels.com/photos/8873498/pexels-photo-8873498.jpeg?auto=compress&cs=tinysrgb&w=600",
       tags: ["TikTok", "Reels", "Montage vidéo", "Marque personnelle"],
      
-      client: "@pixelforcejessrakoto"
+      client: "./logo.jpg"
     }
   ];
 
@@ -61,19 +61,17 @@ const ProjectsSection = () => {
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <Badge variant="secondary" className="mb-2">
-                    {project.client}
-                  </Badge>
+                <div className=" flex absolute bottom-4 left-4 text-white">
+                  
+                    <img src={project.client} className='w-10 h-10   rounded-full' alt="" /><span className='mx-2 text-white'>Pixelforce</span>
+                
                 </div>
               </div>
               
               <CardHeader>
                 <CardTitle className="flex items-center justify-between">
                   {project.title}
-                  <Button variant="ghost" size="icon">
-                    <ExternalLink className="h-4 w-4" />
-                  </Button>
+                 
                 </CardTitle>
                 <p className="text-muted-foreground">{project.description}</p>
               </CardHeader>

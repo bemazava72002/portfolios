@@ -8,6 +8,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Star, Quote, MessageCircle, Send, User } from "lucide-react";
 import { toast } from "sonner";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 interface Testimonial {
   _id: string;
@@ -82,13 +90,7 @@ const TestimonialsSection = () => {
 
       toast.success("Témoignage ajouté !");
       setShowTestimonialForm(false);
-      setTestimonialForm({
-        name: "",
-        company: "",
-        role: "",
-        content: "",
-        rating: 5,
-      });
+      setTestimonialForm({ name: "", company: "", role: "", content: "", rating: 5 });
       fetchTestimonials();
     } catch {
       toast.error("Erreur lors de l'ajout du témoignage");
@@ -117,10 +119,7 @@ const TestimonialsSection = () => {
 
   const renderStars = (rating: number) =>
     Array.from({ length: 5 }, (_, i) => (
-      <Star
-        key={i}
-        className={`h-4 w-4 ${i < rating ? "text-yellow-400 fill-current" : "text-gray-300"}`}
-      />
+      <Star key={i} className={`h-4 w-4 ${i < rating ? "text-yellow-400 fill-current" : "text-gray-300"}`} />
     ));
 
   return (
@@ -129,7 +128,7 @@ const TestimonialsSection = () => {
         <div className="text-center mb-16">
           <h2 className="mb-4">Avis & Témoignages Clients</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Nos services en community management aident les marques à se démarquer sur les réseaux sociaux grâce à des stratégies de contenu sur mesure, une animation de communauté engageante et une gestion cohérente de leur image en ligne. Voici ce que nos clients en pensent.
+            Nos services en community management aident les marques à se démarquer sur les réseaux sociaux grâce à des stratégies de contenu sur mesure, une animation de communauté engageante et une gestion cohérente de leur image en ligne.
           </p>
         </div>
 
@@ -149,9 +148,7 @@ const TestimonialsSection = () => {
                     </Badge>
                   </div>
                 </div>
-                <div className="flex items-center gap-1">
-                  {renderStars(testimonial.rating)}
-                </div>
+                <div className="flex items-center gap-1">{renderStars(testimonial.rating)}</div>
               </CardHeader>
               <CardContent>
                 <div className="relative">
@@ -166,108 +163,65 @@ const TestimonialsSection = () => {
           ))}
         </div>
 
-        <div className="text-center mb-12">
-          <Button onClick={() => setShowTestimonialForm(true)} className="mr-4">
-            Laisser un témoignage sur mes services
-          </Button>
-          <Button variant="outline" onClick={() => setShowCommentForm(true)}>
-            <MessageCircle className="mr-2 h-4 w-4" /> Partager un commentaire
-          </Button>
-        </div>
-
-        {showTestimonialForm && (
-          <Card className="max-w-2xl mx-auto mb-12">
-            <CardHeader>
-              <h3>Ajouter un témoignage sur mes services</h3>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleTestimonialSubmit} className="space-y-4">
+        <div className="text-center mb-12 flex flex-col md:flex-row justify-center gap-4">
+          <Dialog open={showTestimonialForm} onOpenChange={setShowTestimonialForm}>
+            <DialogTrigger asChild>
+              <Button>Laisser un témoignage sur mes services</Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-2xl">
+              <DialogHeader>
+                <DialogTitle>Ajouter un témoignage</DialogTitle>
+                <DialogDescription>Partagez votre retour d'expérience sur mes services.</DialogDescription>
+              </DialogHeader>
+              <form onSubmit={handleTestimonialSubmit} className="space-y-4 mt-4">
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <Input
-                    placeholder="Votre nom"
-                    required
-                    value={testimonialForm.name}
-                    onChange={(e) => setTestimonialForm({ ...testimonialForm, name: e.target.value })}
-                  />
-                  <Input
-                    placeholder="Entreprise ou organisation"
-                    required
-                    value={testimonialForm.company}
-                    onChange={(e) => setTestimonialForm({ ...testimonialForm, company: e.target.value })}
-                  />
+                  <Input placeholder="Votre nom" required value={testimonialForm.name} onChange={(e) => setTestimonialForm({ ...testimonialForm, name: e.target.value })} />
+                  <Input placeholder="Entreprise ou organisation" required value={testimonialForm.company} onChange={(e) => setTestimonialForm({ ...testimonialForm, company: e.target.value })} />
                 </div>
-                <Input
-                  placeholder="Votre poste (ex : Gérant, Responsable marketing...)"
-                  required
-                  value={testimonialForm.role}
-                  onChange={(e) => setTestimonialForm({ ...testimonialForm, role: e.target.value })}
-                />
-                <Textarea
-                  placeholder="Partagez votre expérience avec mes services de community management..."
-                  rows={4}
-                  required
-                  value={testimonialForm.content}
-                  onChange={(e) => setTestimonialForm({ ...testimonialForm, content: e.target.value })}
-                />
+                <Input placeholder="Votre poste" required value={testimonialForm.role} onChange={(e) => setTestimonialForm({ ...testimonialForm, role: e.target.value })} />
+                <Textarea placeholder="Votre témoignage..." rows={4} required value={testimonialForm.content} onChange={(e) => setTestimonialForm({ ...testimonialForm, content: e.target.value })} />
                 <div className="flex items-center gap-2">
                   <span className="text-sm">Note :</span>
                   <div className="flex gap-1">
                     {Array.from({ length: 5 }, (_, i) => (
-                      <button
-                        key={i}
-                        type="button"
-                        onClick={() => setTestimonialForm({ ...testimonialForm, rating: i + 1 })}
-                      >
+                      <button key={i} type="button" onClick={() => setTestimonialForm({ ...testimonialForm, rating: i + 1 })}>
                         <Star className={`h-5 w-5 ${i < testimonialForm.rating ? "text-yellow-400 fill-current" : "text-gray-300"}`} />
                       </button>
                     ))}
                   </div>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex justify-end">
                   <Button type="submit">
                     <Send className="mr-2 h-4 w-4" /> Publier
                   </Button>
-                  <Button type="button" variant="outline" onClick={() => setShowTestimonialForm(false)}>
-                    Annuler
-                  </Button>
                 </div>
               </form>
-            </CardContent>
-          </Card>
-        )}
+            </DialogContent>
+          </Dialog>
 
-        {showCommentForm && (
-          <Card className="max-w-2xl mx-auto mb-12">
-            <CardHeader>
-              <h3>Laisser un commentaire</h3>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleCommentSubmit} className="space-y-4">
-                <Input
-                  placeholder="Votre nom"
-                  required
-                  value={commentForm.name}
-                  onChange={(e) => setCommentForm({ ...commentForm, name: e.target.value })}
-                />
-                <Textarea
-                  placeholder="Un retour sur mes contenus ou services ?"
-                  rows={3}
-                  required
-                  value={commentForm.content}
-                  onChange={(e) => setCommentForm({ ...commentForm, content: e.target.value })}
-                />
-                <div className="flex gap-2">
+          <Dialog open={showCommentForm} onOpenChange={setShowCommentForm}>
+            <DialogTrigger asChild>
+              <Button variant="outline">
+                <MessageCircle className="mr-2 h-4 w-4" /> Partager un commentaire
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-md">
+              <DialogHeader>
+                <DialogTitle>Laisser un commentaire</DialogTitle>
+                <DialogDescription>Partagez vos impressions ou remarques.</DialogDescription>
+              </DialogHeader>
+              <form onSubmit={handleCommentSubmit} className="space-y-4 mt-4">
+                <Input placeholder="Votre nom" required value={commentForm.name} onChange={(e) => setCommentForm({ ...commentForm, name: e.target.value })} />
+                <Textarea placeholder="Un retour sur mes contenus ou services ?" rows={3} required value={commentForm.content} onChange={(e) => setCommentForm({ ...commentForm, content: e.target.value })} />
+                <div className="flex justify-end">
                   <Button type="submit">
                     <Send className="mr-2 h-4 w-4" /> Publier
                   </Button>
-                  <Button type="button" variant="outline" onClick={() => setShowCommentForm(false)}>
-                    Annuler
-                  </Button>
                 </div>
               </form>
-            </CardContent>
-          </Card>
-        )}
+            </DialogContent>
+          </Dialog>
+        </div>
 
         {comments.length > 0 && (
           <div className="max-w-4xl mx-auto">

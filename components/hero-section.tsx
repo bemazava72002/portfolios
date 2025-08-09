@@ -1,89 +1,55 @@
 "use client";
 
-import { Button } from '@/components/ui/button';
-import { ArrowDown, HeartHandshake, Users, MessageCircle } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section id="home" className="min-h-screen flex items-center section-padding bg-gradient-to-br from-background via-background to-muted/20">
-      <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="animate-fade-in">
-            <h1 className="mb-6 leading-tight">
-              Expert en <span className="gradient-text">Community Management</span> & Stratégies de Contenu
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Je crée, anime et développe votre communauté en ligne avec des stratégies engageantes, des contenus impactants et une gestion de réputation efficace.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button 
-                size="lg" 
-                onClick={() => scrollToSection('#services')}
-                className="transition-all duration-300 hover:scale-105"
-              >
-                Découvrir mes services
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                onClick={() => scrollToSection('#contact')}
-                className="transition-all duration-300 hover:scale-105"
-              >
-                Me contacter
-              </Button>
-            </div>
-            
-           
-          </div>
-          
-          <div className="animate-slide-up lg:order-first">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-3xl blur-3xl opacity-20"></div>
-              <div className="relative bg-card rounded-3xl p-8 shadow-2xl border">
-                <div className="text-center mb-6">
-                  <img 
-                    className="w-auto h-28 mx-auto mb-6 rounded-full shadow-lg ring-2 ring-gray-300 object-cover" 
-                    src="/jess.jpg" 
-                    alt="Photo de profil"
-                  />
-                  <h3 className="font-semibold">Votre Community Manager</h3>
-                  <p className="text-muted-foreground">Spécialiste en animation de communauté</p>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
-                    <span className="text-sm">Création de contenu</span>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  </div>
-                  <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
-                    <span className="text-sm">Animation de communauté</span>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  </div>
-                  <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
-                    <span className="text-sm">Veille & modération</span>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/20 px-6 md:px-12 py-16"
+    >
+      <div className="w-full max-w-5xl mx-auto grid md:grid-cols-2 gap-[10px] items-center">
         
-        <div className="text-center mt-16">
-          <Button 
-            variant="ghost" 
-            onClick={() => scrollToSection('#about')}
-            className="animate-bounce"
-          >
-            <ArrowDown className="h-5 w-5" />
-          </Button>
+        {/* Image */}
+        <div className="order-1 md:order-2 flex justify-center md:justify-end animate-slide-in-top">
+          <div className="w-52 h-58 rounded-full mt-20 mb-20 overflow-hidden  ">
+            <img
+              src="./jess.jpg"
+              alt="Jessica Rakotozafy"
+              className="w-full h-full object-fill"
+            />
+          </div>
         </div>
+
+        {/* Texte */}
+        <div className="order-2 md:order-1 text-center md:text-left animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
+            Bonjour, je suis <span className="gradient-text">Jessica</span>,<br />
+            <span className="gradient-text">Community Manager</span>
+          </h1>
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 max-w-xl mx-auto md:mx-0 leading-relaxed">
+            Je vous accompagne dans la création de contenus authentiques, l’animation de vos réseaux, et le développement de votre communauté en ligne avec passion et créativité.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-3">
+            <a href="./CV-Jessica-Rakotozafy .pdf" download>
+            <Button size="lg" className="transition-all duration-300 hover:scale-105">
+              Télécharger mon CV
+            </Button>
+            </a>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="transition-all duration-300 hover:scale-105"
+              onClick={() => {
+                const el = document.querySelector('#contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Me contacter
+            </Button>
+          </div>
+        </div>
+
       </div>
     </section>
   );
