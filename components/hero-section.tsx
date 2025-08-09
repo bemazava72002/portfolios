@@ -6,12 +6,10 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/20 px-6 md:px-12 py-16"
+      className="min-h-screen  mb-6 flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/20 px-6 md:px-12 py-16"
     >
       <div className="w-full max-w-5xl mx-auto grid md:grid-cols-2 gap-[10px] items-center">
-        
-        {/* Image */}
-        <div className="order-1 md:order-2 flex justify-center md:justify-end animate-slide-in-top">
+          <div className="order-1 md:order-2 flex justify-center md:justify-end animate-slide-in-top mt-1">
           <div className="w-52 h-58 rounded-full mt-20 mb-20 overflow-hidden  ">
             <img
               src="./jess.jpg"
@@ -22,8 +20,9 @@ const HeroSection = () => {
         </div>
 
         {/* Texte */}
-        <div className="order-2 md:order-1 text-center md:text-left animate-fade-in">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
+        <div className="order-2 md:order-1 text-center md:text-left animate-fade-in ">
+        
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
             Bonjour, je suis <span className="gradient-text">Jessica</span>,<br />
             <span className="gradient-text">Community Manager</span>
           </h1>
@@ -32,7 +31,7 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-3">
             <a href="./CV-Jessica-Rakotozafy .pdf" download>
-            <Button size="lg" className="transition-all duration-300 hover:scale-105">
+            <Button size="lg"  className="transition-all duration-300 hover:scale-105 w-full">
               Télécharger mon CV
             </Button>
             </a>
